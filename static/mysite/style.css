@@ -1,0 +1,350 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0; padding: 0;
+	scrollbar-width: thin;
+}
+#wrapper {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+}
+/* START Hamburger */
+	#hamburger-ch {
+		z-index: 3;
+		position: absolute;
+		right: 24px;
+		top: 16px;
+		margin: 0;
+		width: 64px;
+		height: 64px;
+		filter: opacity(0%);
+	}
+	#hamburger-icon {
+		z-index: 2;
+		position: absolute;
+		background-image: url('https://www.svgrepo.com/show/524617/hamburger-menu.svg');
+		background-size: 100%;
+		background-position: center center;
+		filter: invert(-1);
+		right: 24px;
+		top: 16px;
+		margin: 0;
+		width: 64px;
+		height: 64px;
+		transition: 0.3s ease-in-out;
+	}
+	#hamburger-ch:checked ~ #blur {
+		background: rgba(0,0,0,0);
+		filter: blur(15px);
+		-webkit-filter: blur(15px);
+		transition: 0.3s ease-out;
+	}
+	#hamburger-ch:checked ~ #menu-bg {
+		right: -10px;
+		filter: none;
+	}
+	#hamburger-ch:checked ~ #menu {
+		right: 0px;
+	}
+	#hamburger-ch:checked ~ #close-menu {
+		right: 32px;
+	}
+	#hamburger-ch:checked ~ #hamburger-icon {
+		filter: opacity(0%);
+	}
+	#hamburger-ch:checked {
+		filter: opacity(0%);
+		width: 100%;
+		height: 100%;
+	}
+/* END Hamburger */
+@media only screen and (max-aspect-ratio: 1/1) {
+	#menu-bg {
+		z-index: 2;
+		background: rgba(0,0,0,0.5);
+		position: fixed;
+		right: -500px;
+		width: 490px;
+		height: 120%;
+		top: -10%;
+		filter: blur(5px);
+		-webkit-filter: blur(5px);
+		transition: 0.2s ease-in;
+	}
+	#menu {
+		z-index: 4;
+		position: fixed;
+		width: 480px;
+		right: -100%;
+		height: calc(100% - 96px);
+		bottom: 0px;
+		transition: 0.3s ease-in;
+	}
+	#close-menu {
+		z-index: 2;
+		position: fixed;
+		top: 24px;
+		right: -64px;
+		filter: invert(1);
+		-webkit-filter: invert(1);
+		transition: 0.2s ease-in-out;
+		transition-delay: 0.1s;
+	}
+}
+@media only screen and (min-aspect-ratio: 1/1) {
+	#menu-bg {
+		z-index: 2;
+		background: rgba(0,0,0,0.5);
+		filter: blur(10px);
+		-webkit-filter: blur(10px);
+		position: fixed;
+		right: -120%;
+		top: -10%;
+		width: 110%;
+		height: 120%;
+		transition: 0.3s ease-in-out;
+	}
+	#menu {
+		z-index: 3;
+		position: fixed;
+		right: -100%;
+		width: 100%;
+		height: calc(100% - 96px);
+		bottom: 0px;
+		transition: 0.3s ease-in-out;
+	}
+	#close-menu {
+		z-index: 2;
+		position: fixed;
+		top: 24px;
+		right: -48px;
+		filter: invert(1);
+		-webkit-filter: invert(1);
+		transition: 0.2s ease-in-out;
+		transition-delay: 0.1s;
+	}
+}
+#blur {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: 0.2s ease-in-out;
+}
+#navbar {
+	z-index: 1;
+	background-color: #D4A373;
+	position: absolute;
+	width: 200%;
+	left: -50%;
+	height: 196px;
+	top: -100px;
+}
+#logo {
+	position: absolute;
+	top: 16px;
+	left: 24px;
+	z-index: 2;
+	width: 64px;
+	height: 64px;
+	background-image: url('https://i.imgur.com/o3o3L6v.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center center;
+}
+#container {
+	display: flex;
+	width: 100%;
+	min-height: 100%;
+}
+#sidepanel {
+	padding-top: 96px;
+	background-color: #FAEDCD;
+	width: 350px;
+	flex-shrink: 0;
+	transition: 0.3s ease-in-out;
+	overflow: hidden;
+}
+#sidepanel h3, h4 {
+	margin-left: 20px;
+	color: #6b705c;
+	display: inline-block;
+	white-space: nowrap;
+}
+#sidepanel-options * {
+	margin-left: 20px;
+}
+#sidepanel-options h3, h4 {
+	color: #6b705c;
+	display: inline-block;
+	white-space: nowrap;
+}
+@media only screen and (max-aspect-ratio: 1/1) {
+	#sidepanel {
+		min-width: 0px;
+		width: 0%;
+	}
+	#grid {
+		margin-top: 100px !important;
+	}
+}
+@media only screen and (min-aspect-ratio: 1/1) {
+	#sidepanel-options {
+		left: -350px !important;
+	}
+	#sidepanel-options-ch-icon {
+		left: -48px;
+		filter: opacity(0%);
+	}
+}
+#sidepanel-options {
+	z-index: 3;
+	background-color: #FAEDCD;
+	position: fixed;
+	left: -350px;
+	width: 350px;
+	top:0;
+	height: 100%;
+	transition: 0.3s ease-in-out;
+}
+#sidepanel-options-ch {
+	margin: 0;
+	z-index: 1;
+	position: fixed;
+	top: 128px;
+	left: 0;
+	width: 48px;
+	height: 48px;
+	filter: opacity(0);
+	transition: 0.3s ease-in-out;
+}
+#sidepanel-options-ch-icon {
+	position: fixed;
+	top: 128px;
+	left: 0;
+	width: 48px;
+	height: 48px;
+	transition: 0.3s ease-in-out;
+	background-image: url('https://i.imgur.com/mgNsLHI.png');
+	background-size: 100%;
+} 
+#sidepanel-options-ch:checked ~ #sidepanel-options-ch-icon {
+	background-image: url('https://i.imgur.com/R1blayC.png');
+	left: 350px;
+}
+#sidepanel-options-ch:checked ~ #sidepanel-options {
+	left: 0px;	
+}
+#sidepanel-options-ch:checked {
+	left: 350px;
+}
+@media only screen and (min-aspect-ratio: 1/1) {
+	#sidepanel-options-ch {
+		visibility: hidden;
+	}
+	#sidepanel-options-ch-icon {
+		left: -48px;
+		filter: opacity(0%);
+	}
+	#sidepanel-options {
+		left: -350px;
+	}
+	#content {
+		width: calc(100% - 350px);
+		padding-right: 5%;
+	}
+}
+#content {
+	margin-top: 96px;
+	background-color: #FEFAE0;
+	width: 100%;
+	padding-bottom: 250px;
+}
+#grid {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1200px;
+	gap: 30px;
+	transition: 0.3s ease-in-out;
+}
+hr {
+	width: 95%;
+}
+.grid-item {
+	display: flex;
+	width: 100%;
+	height: 200px;
+}
+.grid-item-cont {
+	width: calc(100% - 200px);
+	height: 100%;
+}
+.grid-item-cont h2 {
+	color: #6b705c;
+	display: -webkit-box;
+	margin-left: 20px;
+	overflow: hidden;
+	-webkit-line-clamp: 1; 
+	line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.grid-item-cont p {
+	color: #a5a58d;
+	display: -webkit-box;
+	width: 90%;
+	height: 5.5rem;
+	margin-top: 30px;
+	margin-left: 40px;
+	overflow: hidden;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	-webkit-box-orient: vertical;
+
+}
+
+.grid-img {
+	position: relative;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	background-size: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+@media only screen and (max-width: 480px) {
+	.grid-img {
+		position: absolute
+		right: -100px;
+		top: 50px;
+		width: 100px;
+		height: 100px;
+	}
+	.grid-item-cont {
+		width: calc(100% - 100px);
+	}
+}
+#back {
+	position: relative;
+	bottom: -200px;
+	width: 80px;
+	height: 50px;
+}
+#forward {
+	margin-left: 20px;
+	position: relative;
+	bottom: -200px;
+	width: 80px;
+	height: 50px;
+}
+#footer {
+	border-top: 6px double #6b705c;
+	width: 100%;
+	height: 150px;
+	background-color: #E9EDC9;
+}
